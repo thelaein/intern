@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="foods.json"> </script>
+	<script>
+		var foodList= [
+			
+		];
+		function addFoodItem(){
+			var n=$("#foodName").val();
+			var p= parseInt($("#foodPrice").val());
+			var f={name:n,price:p};
+			foodList.push(f);
+			alert(foodList.length);
+		}
+	alert(foodList);
+	for(var i=0;i<foodList.length;i++){
+		alert(foodList[i].name);
+	}
+	
+	/*foodList.forEach(function(value,i){
+		alert(value.name);
+	});
+	*/
+	var order_food=[];
+	var cur_food;
+	function showFoodItem(){
+	$("#foodContainer").empty();
+	food.forEach(function(value,key){
+		$("#foodContainer").append(
+		' <div class="p-2 border" onclick="chooseItem('+key+')">'
+			+'<img src="'+value.img+'"/>'
+			+'<h5 class="name">'+value.name+'</h5>'
+			+'<h4>Price:<span class="price">'+value.price+'</span> Ks</h4>'
+			+'</div>');
+	});
+	}
+	function chooseItem(ind){
+		var cur=food[ind];
+		alert(cur.price);
+	}
+	function choose(e){
+	alert($(e).find(".price").html());
+	var p=parseInt($(e).find(".price").html());
+	var n=$(e).find(".name").html();
+	 cur_food={
+		name:n,
+		price:p,
+		qty:1,
+		total:p*1
+	};
+	order_food.push(cur_food);
+	addOrder(cur_food);
+	var total=0;
+	$.each(order_food,function(key,value){
+	total+=value.price;
+	});
+	$("#total").html(total);
+	}
+	function addOrder(food){
+		$("#orderTable tbody").append('<tr>'
+			+'<td>'+food.name+'</td>'
+			+'<td>'+food.qty+'</td>'
+			+'<td>'+food.price+'</td>'
+			+'<td>'+food.total+'</td>'
+		+'</tr>');
+	}
+	$(document).ready(function(){
+	showFoodItem();
+	});
+	</script>
+	<style>
+	*{
+	box-sizing:border-box;
+	}
+	img{
+	width:150px;
+	height:150px;
+	}
+	.price{
+	color:gold;
+	margin-left:20px;
+	font-size:18px;
+	}
+	.flex-container {
+  display: flex;
+  
+  align-items: center;
+  
+}
+	.p-2{
+	margin:5px !important;
+	}
+	</style>
+  </head>
+<body> 
+
+<div class="container">
+	<h4>Available Food Items</h4>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+		Add New Food
+	  </button>
+	
+  <div class="row">
+	<div class="col-sm-7">
+	<div id="foodContainer" class="flex-container d-flex flex-wrap bg-light">
+    <div class="p-2 border">
+	<img src="food.jpg"/>
+	<h5 class="name">Shan Noodle</h5>
+	<h4>Price:<span class="price">5000</span> Ks</h4>
+	</div>
+    <div class="p-2 border">
+	<img src="food.jpg"/>
+	<h4>Price:<span class="price">5000</span> Ks</h4>
+	</div>
+    <div class="p-2 border">
+	<img src="food.jpg"/>
+	<h4>Price:<span class="price">5000</span> Ks</h4>
+	</div>
+    <div class="p-2 border">
+	<img src="food.jpg"/>
+	<h4>Price:<span class="price">5000</span> Ks</h4>
+	</div>
+   <div class="p-2 border">
+	<img src="food.jpg"/>
+	<h4>Price:<span class="price">5000</span> Ks</h4>
+	</div>
+		<div class="p-2 border">
+		<img src="food.jpg"/>
+		<h4>Price:<span class="price">5000</span> Ks</h4>
+		</div>
+    <div class="p-2 border">
+	<img src="food.jpg"/>
+	<h4>Price:<span class="price">5000</span> Ks</h4>
+	</div>
+    <div class="p-2 border">
+	<img src="food.jpg"/>
+	<h4>Price:<span class="price">5000</span> Ks</h4>
+	</div>
+	<div class="p-2 border">
+	<img src="food.jpg"/>
+	<h4>Price:<span class="price">5000</span> Ks</h4>
+	</div>
+    <div class="p-2 border">
+	<img src="food.jpg"/>
+	<h4>Price:<span class="price">5000</span> Ks</h4>
+	</div>
+    <div class="p-2 border">
+	<img src="food.jpg"/>
+	<h4>Price:<span class="price">5000</span> Ks</h4>
+	</div>
+    <div class="p-2 border">
+	<img src="food.jpg"/>
+	<h4>Price:<span class="price">5000</span> Ks</h4>
+	</div>
+  </div>
+ 
+	</div>
+	<div class="col-sm-5">
+	<table class="table" id="orderTable">
+    <thead class="thead-dark">
+      <tr>
+        <th>Item Name</th>
+        <th>Price</th>
+        <th>Qty</th>
+		<th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+    </tbody>
+  </table>
+  <div class="float-sm-right">
+	
+	Total Amount: <span id="total">2000</span> &nbsp; Ks
+	
+  </div>
+	</div>
+  </div>
+  
+  <br>
+ 
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="row">
+			  <input type="text" class="form-control" placeholder="Name">
+			  <input type="number" class="form-control" placeholder="Price" >
+
+			  <button class="btn btn-primary btn-sm" onclick="addFoodItem();">Add</button>
+		</div>
+
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+var food=[
+	{
+	"name":"Shan Noodle",
+	"price":1200,
+	"category":"shan",
+	"img":"food.jpg"
+	},
+	{
+	"name":"Monhinga",
+	"price":500,
+	"category":"shan",
+	"img":"food.jpg"
+	},
+	{
+	"name":"Nan Pyar",
+	"price":1000,
+	"category":"food",
+	"img":"food.jpg"
+	},
+	{
+	"name":"Espresso",
+	"price":1500,
+	"category":"coffee",
+	"img":"food.jpg"
+	},
+	{
+	"name":"Hamguger",
+	"price":2000,
+	"category":"food",
+	"img":"food.jpg"
+	},
+	{
+	"name":"NanGyi",
+	"price":1200,
+	"category":"shan",
+	"img":"food.jpg"
+	},
+	{
+	"name":"Steam Rice",
+	"price":2000,
+	"category":"food",
+	"img":"food.jpg"
+	},
+	{
+	"name":"Pepsi",
+	"price":500,
+	"category":"drink",
+	"img":"food.jpg"
+	},
+	{
+	"name":"Orage Juice",
+	"price":600,
+	"category":"drink",
+	"img":"food.jpg"
+	},
+	{
+	"name":"lemon",
+	"price":700,
+	"category":"drink",
+	"img":"food.jpg"
+	}
+]
