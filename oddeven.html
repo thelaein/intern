@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function numDivide(){
+                var num1=parseInt(document.getElementById('number1').value);
+                var num2=parseInt(document.getElementById('number2').value);
+                var result="";
+                for(var i=num1;i<=num2;i++){
+                    if(i==0)
+                    {
+                     result+="Number is"+i+"Even <br>";
+                    }
+                    else if(i%2==0)
+                    {
+                   result+="Number is"+i+"Even <br>";
+                    }
+                    else
+                    {
+                     result+="Number is"+i+"Odd <br>";
+                    document.getElementById('lblResult').innerHTML=result;
+                    }
+                }
+           
+           function evenNum(){
+                var num1=parseInt(document.getElementById('number1').value);
+                var num2=parseInt(document.getElementById('number2').value);
+                var result="";
+                for(var i=num1;i<=num2;i++)
+                {
+                    if(i%2==0)
+                    {
+                   result+="Number is"+i+"Even <br>";
+                    }
+                     document.getElementById('lblResult').innerHTML=result;
+                    }
+           }
+
+           
+           function oddNum(){
+                var num1=parseInt(document.getElementById('number1').value);
+                var num2=parseInt(document.getElementById('number2').value);
+                var result="";
+                for(var i=num1;i<=num2;i++)
+                {
+                    if(i%2!=0)
+                    {
+                   result+="Number is"+i+"Odd <br>";
+                    }
+                     document.getElementById('lblResult').innerHTML=result;
+                    }
+                }
+           }
+            function clearData(){
+                var result=confirm("Are you sure want to clear?");
+                if(result==true){
+                    document.getElementById('number1').value="";
+                    document.getElementById('number2').value="";
+                    document.getElementById('lblResult').innerHTML="";
+                }
+            }
+        </script>
+    </head>
+    <body>
+            <label>Enter Number1:</label><br>
+            <input type="text" id="number1"><br>
+            <label>Enter Number2:</label><br>
+            <input type="text" id="number2">
+            <h3 id="lblResult"></h3>
+            <button onclick="numDivide()">Show Result</button>
+            <button onclick="evenNum()">Even</button>
+            <button onclick="oddNum()">Odd</button>
+            <button onclick="clearData()">Reset</button>
+    </body>
+</html>
