@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>calculator</title>
+        <script>
+            function add(){
+                var num1=document.getElementById("num1").value;
+                var num2=document.getElementById("num2").value;
+                var result= parseInt(num1)+parseInt(num2);
+                document.getElementById("lblResult").innerHTML=result;
+            }
+            function subtract(){
+                var num1=document.getElementById("num1").value;
+                var num2=document.getElementById("num2").value;
+                var result= parseInt(num1)-parseInt(num2);
+                document.getElementById("lblResult").innerHTML=result;
+                
+            }
+            function multiply(){
+                var num1= document.getElementById("num1").value;
+                var num2=document.getElementById("num2").value;
+                var result= parseInt(num1)*parseInt(num2);
+                document.getElementById("lblResult").innerHTML=result;
+            }
+            function divided(){
+                var num1= document.getElementById("num1").value;
+                var num2=document.getElementById("num2").value;
+                var result= parseInt(num1)%parseInt(num2);
+                document.getElementById("lblResult").innerHTML=result;
+                
+            }
+           
+            function clearData(){
+                var result=confirm("Are you sure want to clear?");
+                if(result==true){
+                    document.getElementById("num1").value="";
+                    document.getElementById("num2").value="";
+                    document.getElementById("lblResult").innerHTML="";
+                }
+            }
+        </script>
+    </head>
+    <body>
+            <label>First Number:</label><br>
+            <input type="text" id="num1"><br>
+            <label>Second Number:</label><br>
+            <input type="text" id="num2">
+            <h3 id="lblResult"></h3>
+            <button onclick="add()">+</button>
+            <button onclick="subtract()">-</button>
+            <button onclick="multiply()">*</button>
+            <button onclick="divided()">%</button>
+            <button onclick="clearData()">Reset</button>
+    </body>
+</html>
