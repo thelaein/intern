@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task list assignment</title>
+    </head>
+    <body>
+        <h1>Today Task</h1>
+        <label>Task Name:</label>
+        <input type="text" id="task">
+        <button type="button" onclick="add()">Add</button>
+        <br><br>
+        <label>Task list:</label>
+        <ul id="u1">   
+
+        </ul>
+
+        <script>
+            
+            function add(){
+
+                var t=document.getElementById("task");
+                var list=document.getElementById("u1");
+
+                var x=(t.value).toString();
+                var c=document.createElement("li");
+                c.innerHTML=x;
+                list.appendChild(c);
+
+                var b=document.createElement("button");
+                b.innerHTML="DELETE";
+                c.appendChild(b);
+                b.addEventListener("click",function(){
+                    list.removeChild(c);
+                });
+               
+            }
+        </script>
+    
+</body>
+</html>
